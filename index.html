@@ -15,91 +15,68 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
   --green:#16A34A;--greenlt:#22C55E;
   --red:#DC2626;--redlt:#F87171;
   --amber:#D97706;--amberlt:#FCD34D;
-  --purple:#7C3AED;
   --surface:#101828;--surface2:#182035;--surface3:#1E2A42;
   --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
   --text:#E8EDF5;--muted:#8896B0;--dimmed:#4A5568;
 }
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* ── EKRANLAR ── */
+ 
 .screen{display:none;min-height:100vh}
 .screen.active{display:flex;flex-direction:column}
-
-/* ── GİRİŞ EKRANI ── */
+ 
+/* ── GİRİŞ ── */
 #screen-login{align-items:center;justify-content:center;padding:2rem;
-  background:radial-gradient(ellipse 70% 50% at 50% 30%, rgba(13,124,132,0.15) 0%, transparent 70%)}
-.login-card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:20px;padding:2.5rem;width:min(440px,100%);
-  box-shadow:0 24px 48px rgba(0,0,0,0.4);
-}
-.login-logo{
-  width:52px;height:52px;border-radius:14px;
+  background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(13,124,132,0.15) 0%,transparent 70%)}
+.login-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;
+  padding:2.5rem;width:min(440px,100%);box-shadow:0 24px 48px rgba(0,0,0,0.4)}
+.login-logo{width:52px;height:52px;border-radius:14px;
   background:linear-gradient(135deg,var(--navy3),var(--teal));
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;margin:0 auto 1.25rem;
-}
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 1.25rem}
 .login-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;
   text-align:center;letter-spacing:-0.02em;margin-bottom:0.25rem}
 .login-sub{font-size:0.82rem;color:var(--muted);text-align:center;margin-bottom:2rem;line-height:1.5}
 .form-group{margin-bottom:1rem}
 .form-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;
   color:var(--muted);font-weight:500;margin-bottom:0.4rem;display:block}
-.form-input{
-  width:100%;padding:0.75rem 1rem;
-  background:var(--surface2);border:1px solid var(--border2);
-  border-radius:10px;color:var(--text);font-size:0.9rem;
-  font-family:'DM Sans',sans-serif;outline:none;
-  transition:border-color 0.15s;
-}
+.form-input{width:100%;padding:0.75rem 1rem;background:var(--surface2);border:1px solid var(--border2);
+  border-radius:10px;color:var(--text);font-size:0.9rem;font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color 0.15s}
 .form-input:focus{border-color:var(--teallt)}
 .form-input::placeholder{color:var(--dimmed)}
-.start-btn{
-  width:100%;padding:0.9rem;border-radius:10px;border:none;
-  background:linear-gradient(135deg,var(--navy3),var(--teal));
-  color:#fff;font-size:0.95rem;font-weight:500;cursor:pointer;
-  transition:all 0.2s;font-family:'Syne',sans-serif;margin-top:0.5rem;
-}
+.start-btn{width:100%;padding:0.9rem;border-radius:10px;border:none;
+  background:linear-gradient(135deg,var(--navy3),var(--teal));color:#fff;
+  font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.2s;
+  font-family:'Syne',sans-serif;margin-top:0.5rem}
 .start-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,124,132,0.35)}
 .start-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 .form-error{font-size:0.78rem;color:var(--redlt);margin-top:0.4rem;display:none}
-
-/* ── OYUN EKRANI ── */
+.lb-link{text-align:center;margin-top:1rem}
+.lb-link button{background:none;border:none;color:var(--teallt);font-size:0.82rem;
+  cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline}
+ 
+/* ── OYUN ── */
 #screen-game{flex-direction:row}
-.game-left{
-  width:260px;flex-shrink:0;
-  background:var(--surface);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;
-}
+.game-left{width:260px;flex-shrink:0;background:var(--surface);
+  border-right:1px solid var(--border);display:flex;flex-direction:column}
 .gl-header{padding:1rem;border-bottom:1px solid var(--border)}
 .player-info{display:flex;align-items:center;gap:0.625rem;margin-bottom:0.75rem}
-.player-avatar{
-  width:36px;height:36px;border-radius:50%;
+.player-avatar{width:36px;height:36px;border-radius:50%;
   background:linear-gradient(135deg,var(--navy3),var(--teal));
   display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;flex-shrink:0;
-}
+  font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;flex-shrink:0}
 .player-name{font-size:0.85rem;font-weight:500;color:var(--text);line-height:1.2}
 .player-no{font-size:0.7rem;color:var(--muted)}
-.score-display{
-  background:var(--surface2);border-radius:10px;padding:0.75rem;
-  display:flex;align-items:center;justify-content:space-between;
-}
+.score-display{background:var(--surface2);border-radius:10px;padding:0.75rem;
+  display:flex;align-items:center;justify-content:space-between}
 .score-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
 .score-value{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--goldl)}
-
 .gl-title{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;
   color:var(--muted);font-weight:600;padding:0.75rem 1rem 0.4rem}
 .event-list-game{flex:1;overflow-y:auto;padding:0.25rem 0}
-.ev-btn{
-  width:100%;padding:0.55rem 1rem;
-  border:none;background:transparent;
-  display:flex;align-items:center;gap:0.55rem;
-  cursor:pointer;border-left:3px solid transparent;
-  transition:background 0.1s;text-align:left;
-}
+.ev-btn{width:100%;padding:0.55rem 1rem;border:none;background:transparent;
+  display:flex;align-items:center;gap:0.55rem;cursor:pointer;
+  border-left:3px solid transparent;transition:background 0.1s;text-align:left}
 .ev-btn:hover{background:var(--surface2)}
 .ev-btn.active{background:var(--surface3);border-left-color:var(--goldl)}
 .ev-btn.done-g{border-left-color:var(--greenlt)}
@@ -109,18 +86,14 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
 .ev-info{flex:1;min-width:0}
 .ev-year{font-size:0.62rem;color:var(--muted);margin-bottom:1px}
 .ev-lbl{font-size:0.78rem;color:var(--text);line-height:1.25}
-.ev-badge{font-size:0.65rem;font-weight:700;width:18px;height:18px;
-  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-
+.ev-badge{font-size:0.65rem;font-weight:700;width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cat-c{color:#F87171}.cat-w{color:#FCD34D}.cat-e{color:#6EE7B7}.cat-u{color:#93C5FD}
 .dot-c{background:#F87171}.dot-w{background:#FCD34D}.dot-e{background:#6EE7B7}.dot-u{background:#93C5FD}
-
 .game-right{flex:1;overflow-y:auto;background:#080E1C;display:flex;flex-direction:column}
-.game-topbar{
-  padding:0.875rem 1.25rem;border-bottom:1px solid var(--border);
+.game-topbar{padding:0.875rem 1.25rem;border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
-  background:var(--surface);flex-shrink:0;
-}
+  background:var(--surface);flex-shrink:0}
 .gtb-left{font-size:0.8rem;color:var(--muted)}
 .gtb-left strong{color:var(--goldl)}
 .prog-wrap{height:3px;background:var(--border);overflow:hidden;flex-shrink:0}
@@ -130,15 +103,13 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
 .hc-g{border-color:rgba(34,197,94,0.4);color:var(--greenlt);background:rgba(22,163,74,0.1)}
 .hc-o{border-color:rgba(252,211,77,0.4);color:var(--amberlt);background:rgba(217,119,6,0.1)}
 .hc-b{border-color:rgba(248,113,113,0.4);color:var(--redlt);background:rgba(220,38,38,0.1)}
-
-.game-placeholder{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem;text-align:center}
+.game-placeholder{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1rem;padding:3rem;text-align:center}
 .gp-icon{font-size:2.5rem;opacity:0.3}
 .gp-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--muted)}
 .gp-sub{font-size:0.82rem;color:var(--dimmed);max-width:280px;line-height:1.55}
-
 .game-body{padding:1.25rem;display:none}
 .game-body.show{display:block}
-
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:1rem}
 .mc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0.75rem}
 .mc-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:0.25rem}
@@ -146,30 +117,59 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
 .mc-s{font-size:0.65rem;color:var(--muted);margin-top:0.2rem}
 .mc-bar{height:3px;background:var(--border);border-radius:2px;margin-top:0.5rem;overflow:hidden}
 .mc-fill{height:100%;border-radius:2px;transition:width 0.5s,background 0.4s}
-
-.sc-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.125rem;margin-bottom:0.875rem;position:relative;overflow:hidden}
-.sc-card::after{content:attr(data-yr);position:absolute;right:1rem;top:0.75rem;font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(255,255,255,0.03);pointer-events:none;user-select:none}
+ 
+/* Kavram kutusu */
+.kavram-box{background:linear-gradient(135deg,rgba(13,36,64,0.9),rgba(13,124,132,0.15));
+  border:1px solid rgba(240,180,41,0.35);border-radius:14px;padding:1rem 1.125rem;
+  margin-bottom:0.875rem;position:relative;overflow:hidden}
+.kavram-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--teallt),transparent)}
+.kavram-header{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem}
+.kavram-badge{background:rgba(240,180,41,0.15);border:1px solid rgba(240,180,41,0.4);
+  color:var(--goldl);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+  padding:0.2rem 0.55rem;border-radius:20px;text-transform:uppercase;white-space:nowrap}
+.kavram-header-title{font-size:0.78rem;color:var(--muted);font-style:italic}
+.kavram-items{display:flex;flex-direction:column;gap:0.5rem}
+.kavram-item{background:rgba(0,0,0,0.25);border-radius:8px;padding:0.6rem 0.75rem;
+  border-left:3px solid var(--teallt)}
+.kavram-term{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;
+  color:var(--goldl);margin-bottom:3px}
+.kavram-def{font-size:0.78rem;color:var(--muted);line-height:1.55}
+.kavram-tag{display:inline-block;margin-top:4px;font-size:0.62rem;padding:1px 6px;
+  border-radius:4px;background:rgba(13,124,132,0.2);color:var(--teallt);font-weight:600}
+ 
+.sc-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:1.125rem;margin-bottom:0.875rem;position:relative;overflow:hidden}
+.sc-card::after{content:attr(data-yr);position:absolute;right:1rem;top:0.75rem;
+  font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;
+  color:rgba(255,255,255,0.03);pointer-events:none;user-select:none}
 .sc-top{display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem}
-.sc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
-.sc-meta{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);margin-bottom:2px}
-.sc-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.2}
+.sc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1.25rem;flex-shrink:0}
+.sc-meta{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.09em;
+  color:var(--muted);margin-bottom:2px}
+.sc-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;
+  color:var(--text);line-height:1.2}
 .sc-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:0.875rem}
 .sc-impacts{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem}
-.impact-chip{padding:0.45rem 0.625rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px}
+.impact-chip{padding:0.45rem 0.625rem;background:var(--surface2);
+  border:1px solid var(--border);border-radius:8px}
 .ic-l{font-size:0.6rem;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:0.04em}
 .ic-v{font-size:0.82rem;font-weight:600}
-
 .adv-section{margin-bottom:0.875rem}
-.sec-lbl{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);margin-bottom:0.5rem;font-weight:600}
+.sec-lbl{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.09em;
+  color:var(--muted);margin-bottom:0.5rem;font-weight:600}
 .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem}
-.adv-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0.65rem;cursor:pointer;transition:all 0.12s}
+.adv-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:0.65rem;cursor:pointer;transition:all 0.12s}
 .adv-card:hover{border-color:var(--border2);background:var(--surface2)}
 .adv-card.sel{border-color:var(--teallt);background:rgba(13,124,132,0.1)}
-.adv-n{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:3px;font-weight:600}
+.adv-n{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;
+  color:var(--muted);margin-bottom:3px;font-weight:600}
 .adv-r{font-size:0.78rem;font-weight:500;color:var(--text);margin-bottom:2px;line-height:1.25}
 .adv-w{font-size:0.7rem;color:var(--muted)}
-
-.dec-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:0.875rem}
+.dec-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:1rem;margin-bottom:0.875rem}
 .dec-lbl{font-size:0.78rem;color:var(--muted);margin-bottom:0.625rem}
 .dec-lbl strong{color:var(--goldl);font-weight:500}
 .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem}
@@ -177,20 +177,19 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
   background:var(--surface2);color:var(--text);font-size:0.82rem;font-weight:500;
   cursor:pointer;transition:all 0.12s;text-align:left;font-family:'DM Sans',sans-serif;line-height:1.3}
 .opt-btn:hover{background:var(--surface3);transform:translateY(-1px)}
-.opt-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);display:block;margin-top:2px}
+.opt-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;
+  color:var(--muted);display:block;margin-top:2px}
 .opt-btn.og{border-color:var(--greenlt);background:rgba(22,163,74,0.12);color:var(--greenlt)}
 .opt-btn.oa{border-color:var(--amberlt);background:rgba(217,119,6,0.12);color:var(--amberlt)}
 .opt-btn.or{border-color:var(--redlt);background:rgba(220,38,38,0.12);color:var(--redlt)}
 .opt-btn.od{border-color:var(--goldl);background:rgba(200,150,12,0.12);color:var(--goldl)}
-
 .cfm-btn{width:100%;padding:0.85rem;border-radius:10px;border:none;
-  background:linear-gradient(135deg,var(--navy3),var(--teal));
-  color:#fff;font-size:0.9rem;font-weight:500;cursor:pointer;
-  transition:all 0.2s;font-family:'Syne',sans-serif;}
+  background:linear-gradient(135deg,var(--navy3),var(--teal));color:#fff;
+  font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;font-family:'Syne',sans-serif}
 .cfm-btn:disabled{opacity:0.35;cursor:not-allowed;background:var(--surface3)}
 .cfm-btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(13,124,132,0.35)}
-
-.result-card{border-radius:16px;border:1px solid var(--border);padding:1rem;margin-bottom:0.875rem;display:none;animation:fadeUp 0.3s ease}
+.result-card{border-radius:16px;border:1px solid var(--border);padding:1rem;
+  margin-bottom:0.875rem;display:none;animation:fadeUp 0.3s ease}
 .result-card.show{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .rc-good{border-color:rgba(34,197,94,0.3);background:rgba(22,163,74,0.07)}
@@ -203,158 +202,102 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
 .ri{padding:0.5rem 0.625rem;background:rgba(0,0,0,0.2);border-radius:8px}
 .ri-l{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:2px}
 .ri-v{font-size:0.85rem;font-weight:600}
-.fb-text{font-size:0.8rem;line-height:1.6;color:var(--text);padding:0.625rem;border-radius:8px;border-left:3px solid;background:rgba(0,0,0,0.2)}
+.fb-text{font-size:0.8rem;line-height:1.6;color:var(--text);padding:0.625rem;
+  border-radius:8px;border-left:3px solid;background:rgba(0,0,0,0.2)}
 .next-btn{width:100%;padding:0.7rem;margin-top:0.75rem;border-radius:10px;
-  border:1px solid var(--border2);background:var(--surface2);
-  color:var(--text);font-size:0.85rem;font-weight:500;cursor:pointer;
-  transition:all 0.12s;font-family:'DM Sans',sans-serif}
+  border:1px solid var(--border2);background:var(--surface2);color:var(--text);
+  font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.12s;font-family:'DM Sans',sans-serif}
 .next-btn:hover{background:var(--surface3);border-color:var(--goldl);color:var(--goldl)}
-
-/* ── OYUN BİTTİ ── */
-.go-screen{flex:1;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;gap:1rem}
+.go-screen{flex:1;display:none;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:2.5rem;gap:1rem}
 .go-screen.show{display:flex}
-.go-ring{width:110px;height:110px;border-radius:50%;border:3px solid var(--goldl);display:flex;align-items:center;justify-content:center}
+.go-ring{width:110px;height:110px;border-radius:50%;border:3px solid var(--goldl);
+  display:flex;align-items:center;justify-content:center}
 .go-pct{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--goldl)}
 .go-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;max-width:300px;line-height:1.2}
 .go-grade{font-size:0.85rem;color:var(--muted)}
-.go-stats{font-size:0.78rem;color:var(--muted);padding:0.75rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;max-width:320px;width:100%;line-height:1.8}
+.go-stats{font-size:0.78rem;color:var(--muted);padding:0.75rem 1.25rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  max-width:320px;width:100%;line-height:1.8}
 .go-btns{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem}
-.go-btn{padding:0.7rem 1.375rem;border-radius:10px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:0.85rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.12s}
+.go-btn{padding:0.7rem 1.375rem;border-radius:10px;border:1px solid var(--border2);
+  background:var(--surface2);color:var(--text);font-size:0.85rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.12s}
 .go-btn:hover{background:var(--surface3);border-color:var(--goldl)}
 .go-btn.pri{background:linear-gradient(135deg,var(--navy3),var(--teal));border-color:var(--teal);color:#fff}
-
+ 
 /* ── LİDERBOARD ── */
-#screen-lb{align-items:center;justify-content:flex-start;padding:2rem;gap:1.5rem}
-.lb-header{width:100%;max-width:760px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem}
+#screen-lb{min-height:100vh;padding:2rem;align-items:center;justify-content:flex-start;gap:1.5rem}
+.lb-wrap{width:100%;max-width:780px}
+.lb-header{display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:0.75rem;margin-bottom:1.25rem}
 .lb-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--goldl)}
+.lb-sub{font-size:0.78rem;color:var(--muted);margin-top:2px}
 .lb-actions{display:flex;gap:0.5rem;flex-wrap:wrap}
-.lb-btn{padding:0.5rem 1rem;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.12s}
+.lb-btn{padding:0.5rem 1rem;border-radius:8px;border:1px solid var(--border2);
+  background:var(--surface2);color:var(--text);font-size:0.82rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.12s}
 .lb-btn:hover{background:var(--surface3);border-color:var(--goldl)}
-.lb-btn.pri{background:linear-gradient(135deg,var(--navy3),var(--teal));border-color:var(--teal);color:#fff}
-.lb-table{width:100%;max-width:760px;border-collapse:collapse}
-.lb-table th{background:var(--navy);color:var(--goldl);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;padding:0.625rem 0.875rem;text-align:left;font-weight:600}
-.lb-table td{padding:0.625rem 0.875rem;font-size:0.85rem;border-bottom:1px solid var(--border)}
-.lb-table tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
-.lb-table .rank{font-family:'Syne',sans-serif;font-weight:700;color:var(--goldl);text-align:center}
-.lb-table .gold-r{color:#FFD700}
-.lb-table .silver-r{color:#C0C0C0}
-.lb-table .bronze-r{color:#CD7F32}
-.lb-bar-wrap{height:6px;background:var(--border);border-radius:3px;width:120px;overflow:hidden}
-.lb-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--goldl))}
-.lb-empty{text-align:center;color:var(--muted);font-size:0.85rem;padding:3rem}
-.lb-summary{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(4,1fr);gap:0.625rem}
+.lb-btn.pri{background:linear-gradient(135deg,var(--navy3),var(--teal));
+  border-color:var(--teal);color:#fff}
+.lb-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0.625rem;margin-bottom:1.25rem}
 .lb-stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:0.75rem}
 .lb-stat-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:4px}
 .lb-stat-v{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--goldl)}
-
-/* ── ÖĞRETMEN PANELİ ── */
-.teacher-trigger{position:fixed;bottom:0;right:0;width:48px;height:48px;cursor:default;z-index:50;opacity:0}
-.pw-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:100;display:none;align-items:center;justify-content:center}
-.pw-overlay.show{display:flex}
-.pw-box{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:2rem;width:min(380px,90vw)}
-.pw-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--goldl);margin-bottom:0.25rem}
-.pw-sub{font-size:0.78rem;color:var(--muted);margin-bottom:1.25rem}
-.pw-foot{display:flex;gap:0.5rem;justify-content:flex-end;margin-top:1rem}
-.pw-btn{padding:0.5rem 1rem;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif}
-.pw-btn.pri{background:linear-gradient(135deg,var(--navy3),var(--teal));border-color:var(--teal);color:#fff}
-.pw-err{font-size:0.75rem;color:var(--redlt);margin-top:0.4rem;display:none}
-
-/* ── KAVRAM KUTUSU ── */
-.kavram-box{
-  background:linear-gradient(135deg,rgba(13,36,64,0.9),rgba(13,124,132,0.15));
-  border:1px solid rgba(240,180,41,0.35);
-  border-radius:14px;padding:1rem 1.125rem;margin-bottom:0.875rem;
-  position:relative;overflow:hidden;
-}
-.kavram-box::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--teallt),transparent);
-}
-.kavram-header{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem}
-.kavram-badge{
-  background:rgba(240,180,41,0.15);border:1px solid rgba(240,180,41,0.4);
-  color:var(--goldl);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
-  padding:0.2rem 0.55rem;border-radius:20px;text-transform:uppercase;white-space:nowrap;
-}
-.kavram-header-title{font-size:0.78rem;color:var(--muted);font-style:italic}
-.kavram-items{display:flex;flex-direction:column;gap:0.5rem}
-.kavram-item{
-  background:rgba(0,0,0,0.25);border-radius:8px;
-  padding:0.6rem 0.75rem;border-left:3px solid var(--teallt);
-}
-.kavram-term{
-  font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;
-  color:var(--goldl);margin-bottom:3px;
-}
-.kavram-def{font-size:0.78rem;color:var(--muted);line-height:1.55}
-.kavram-tag{
-  display:inline-block;margin-top:4px;
-  font-size:0.62rem;padding:1px 6px;border-radius:4px;
-  background:rgba(13,124,132,0.2);color:var(--teallt);font-weight:600;
-}
-
+.lb-table{width:100%;border-collapse:collapse}
+.lb-table th{background:var(--navy);color:var(--goldl);font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.08em;padding:0.625rem 0.875rem;
+  text-align:left;font-weight:600}
+.lb-table td{padding:0.625rem 0.875rem;font-size:0.85rem;border-bottom:1px solid var(--border)}
+.lb-table tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
+.rank-cell{font-family:'Syne',sans-serif;font-weight:700;text-align:center}
+.gold-r{color:#FFD700}.silver-r{color:#C0C0C0}.bronze-r{color:#CD7F32}.normal-r{color:var(--muted)}
+.lb-bar-wrap{height:6px;background:var(--border);border-radius:3px;width:100px;overflow:hidden}
+.lb-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--goldl))}
+.lb-empty{text-align:center;padding:3rem;color:var(--muted);font-size:0.85rem}
+.me-row td{background:rgba(201,150,12,0.06) !important}
+.lb-refresh{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--muted)}
+.lb-refresh-dot{width:7px;height:7px;border-radius:50%;background:var(--greenlt);
+  animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+ 
 @media(max-width:700px){
   #screen-game{flex-direction:column}
   .game-left{width:100%;max-height:220px}
   .metrics{grid-template-columns:1fr 1fr}
   .adv-grid,.opts-grid{grid-template-columns:1fr}
+  .sc-impacts{grid-template-columns:1fr 1fr}
+  .lb-summary{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
-
-<!-- ── GİZLİ ÖĞRETMEN TETİKLEYİCİ ── -->
-<div class="teacher-trigger" id="teacherTrigger"></div>
-
-<!-- ── ŞİFRE OVERLAY ── -->
-<div class="pw-overlay" id="pwOverlay">
-  <div class="pw-box">
-    <div class="pw-title">Öğretmen Paneli</div>
-    <div class="pw-sub">Liderboard ve veri indirme için şifreyi girin.</div>
-    <label class="form-label">Şifre</label>
-    <input class="form-input" type="password" id="pwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()">
-    <div class="pw-err" id="pwErr">Hatalı şifre.</div>
-    <div class="pw-foot">
-      <button class="pw-btn" onclick="closePw()">İptal</button>
-      <button class="pw-btn pri" onclick="checkPw()">Giriş</button>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     EKRAN 1: GİRİŞ
-════════════════════════════════════════════ -->
+ 
+<!-- ════ GİRİŞ ════ -->
 <div class="screen active" id="screen-login">
   <div class="login-card">
     <div class="login-logo">🏦</div>
     <div class="login-title">ECB Para Politikası</div>
     <div class="login-sub">Bandırma Onyedi Eylül Üniversitesi<br>Uluslararası İlişkiler Bölümü</div>
-
     <div class="form-group">
       <label class="form-label">Ad Soyad</label>
-      <input class="form-input" type="text" id="inp-name" placeholder="Örn: Ahmet Yılmaz" autocomplete="off">
+      <input class="form-input" type="text" id="inp-name" placeholder="Ahmet Yılmaz" autocomplete="off">
       <div class="form-error" id="err-name">Lütfen adınızı soyadınızı girin.</div>
     </div>
     <div class="form-group">
       <label class="form-label">Öğrenci Numarası</label>
-      <input class="form-input" type="text" id="inp-no" placeholder="Örn: 2021304012" autocomplete="off">
+      <input class="form-input" type="text" id="inp-no" placeholder="2021304012" autocomplete="off">
       <div class="form-error" id="err-no">Lütfen öğrenci numaranızı girin.</div>
     </div>
-
-    <button class="start-btn" id="startBtn" onclick="startGame()">Oyuna Başla →</button>
-
-    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);text-align:center">
-      <span style="font-size:0.72rem;color:var(--dimmed)">Sonuçlarınız sınıf veritabanına kaydedilecektir.</span>
+    <button class="start-btn" onclick="startGame()">Oyuna Başla →</button>
+    <div class="lb-link">
+      <button onclick="showScreen('screen-lb');renderLB()">Liderboard'u Gör →</button>
     </div>
   </div>
 </div>
-
-<!-- ════════════════════════════════════════════
-     EKRAN 2: OYUN
-════════════════════════════════════════════ -->
+ 
+<!-- ════ OYUN ════ -->
 <div class="screen" id="screen-game">
-
-  <!-- SOL PANEL -->
   <div class="game-left">
     <div class="gl-header">
       <div class="player-info">
@@ -365,41 +308,36 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
         </div>
       </div>
       <div class="score-display">
-        <span class="score-label">Toplam Puan</span>
+        <span class="score-label">Puan</span>
         <span class="score-value" id="score-disp">0</span>
       </div>
     </div>
-
     <div class="gl-title">Siyasi Olaylar</div>
     <div class="event-list-game" id="ev-list"></div>
   </div>
-
-  <!-- SAĞ ALAN -->
+ 
   <div class="game-right">
     <div class="game-topbar">
-      <div class="gtb-left">Tur <strong id="tur-disp">0</strong> / 8 &nbsp;·&nbsp; <strong id="kalan-disp">8</strong> olay kaldı</div>
-      <button class="lb-btn" onclick="showLB()" style="font-size:0.75rem;padding:0.35rem 0.75rem">Liderboard →</button>
+      <div class="gtb-left">Tur <strong id="tur-disp">0</strong> / 8</div>
+      <button class="lb-btn" onclick="showScreen('screen-lb');renderLB()" style="font-size:0.75rem;padding:0.35rem 0.75rem">Liderboard →</button>
     </div>
     <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
     <div class="hist-strip" id="hist-strip"></div>
-
-    <!-- Placeholder -->
+ 
     <div class="game-placeholder" id="gp">
       <div class="gp-icon">🌍</div>
       <div class="gp-title">Bir olay seç</div>
-      <div class="gp-sub">Soldan herhangi bir siyasi olayı seç, ECB başkanı olarak faiz kararını ver.</div>
+      <div class="gp-sub">Soldan bir siyasi olay seç, ECB başkanı olarak faiz kararı ver.</div>
     </div>
-
-    <!-- Oyun gövdesi -->
+ 
     <div class="game-body" id="game-body">
-      <!-- Göstergeler -->
       <div class="metrics">
         <div class="mc"><div class="mc-l">Enflasyon</div><div class="mc-v" id="mi">—</div><div class="mc-s" id="mi-s">hedef %2</div><div class="mc-bar"><div class="mc-fill" id="mi-b"></div></div></div>
-        <div class="mc"><div class="mc-l">İşsizlik</div><div class="mc-v" id="mu">—</div><div class="mc-s" id="mu-s">AB ort.</div><div class="mc-bar"><div class="mc-fill" id="mu-b"></div></div></div>
-        <div class="mc"><div class="mc-l">Büyüme</div><div class="mc-v" id="mg">—</div><div class="mc-s" id="mg-s">yıllık</div><div class="mc-bar"><div class="mc-fill" id="mg-b"></div></div></div>
+        <div class="mc"><div class="mc-l">İşsizlik</div><div class="mc-v" id="mu">—</div><div class="mc-s">AB ort.</div><div class="mc-bar"><div class="mc-fill" id="mu-b"></div></div></div>
+        <div class="mc"><div class="mc-l">Büyüme</div><div class="mc-v" id="mg">—</div><div class="mc-s">yıllık</div><div class="mc-bar"><div class="mc-fill" id="mg-b"></div></div></div>
         <div class="mc"><div class="mc-l">Faiz (MRO)</div><div class="mc-v" id="mr">—</div><div class="mc-s">mevcut</div><div class="mc-bar"><div class="mc-fill" id="mr-b"></div></div></div>
       </div>
-      <!-- Kavram Kutusu -->
+ 
       <div class="kavram-box" id="kavram-box" style="display:none">
         <div class="kavram-header">
           <div class="kavram-badge">💡 Bunu biliyor musunuz?</div>
@@ -407,7 +345,7 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
         </div>
         <div class="kavram-items" id="kavram-items"></div>
       </div>
-      <!-- Senaryo -->
+ 
       <div class="sc-card" id="sc-card" data-yr="">
         <div class="sc-top">
           <div class="sc-icon" id="sc-icon"></div>
@@ -416,18 +354,18 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
         <div class="sc-desc" id="sc-desc"></div>
         <div class="sc-impacts" id="sc-impacts"></div>
       </div>
-      <!-- Danışmanlar -->
+ 
       <div class="adv-section">
         <div class="sec-lbl">Danışman görüşleri</div>
         <div class="adv-grid" id="adv-grid"></div>
       </div>
-      <!-- Karar -->
+ 
       <div class="dec-card">
         <div class="dec-lbl">Faiz kararın: <strong id="sel-lbl">Bir seçenek seç</strong></div>
         <div class="opts-grid" id="opts-grid"></div>
         <button class="cfm-btn" id="cfm-btn" disabled onclick="confirmDec()">Kararı Onayla</button>
       </div>
-      <!-- Sonuç -->
+ 
       <div class="result-card" id="res-card">
         <div class="rc-hdr"><div class="rc-title" id="rc-title"></div><div class="rc-pts" id="rc-pts"></div></div>
         <div class="rc-grid" id="rc-grid"></div>
@@ -435,8 +373,7 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
         <button class="next-btn" onclick="nextEvent()">Sonraki Olaya Geç →</button>
       </div>
     </div>
-
-    <!-- Oyun sonu -->
+ 
     <div class="go-screen" id="go-screen">
       <div class="go-ring"><div class="go-pct" id="go-pct"></div></div>
       <div class="go-name" id="go-name"></div>
@@ -444,48 +381,52 @@ body{font-family:'DM Sans',sans-serif;background:#080E1C;color:#E8EDF5;min-heigh
       <div class="go-stats" id="go-stats"></div>
       <div class="go-btns">
         <button class="go-btn" onclick="restartGame()">Yeniden Oyna</button>
-        <button class="go-btn pri" onclick="showLB()">Liderboard →</button>
+        <button class="go-btn pri" onclick="showScreen('screen-lb');renderLB()">Liderboard →</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ════════════════════════════════════════════
-     EKRAN 3: LİDERBOARD
-════════════════════════════════════════════ -->
+ 
+<!-- ════ LİDERBOARD ════ -->
 <div class="screen" id="screen-lb">
-  <div class="lb-header">
-    <div class="lb-title">Sınıf Liderboard</div>
-    <div class="lb-actions">
-      <button class="lb-btn" onclick="showScreen('screen-game')">← Oyuna Dön</button>
-      <button class="lb-btn pri" onclick="openTeacher()">Öğretmen Paneli</button>
+  <div class="lb-wrap">
+    <div class="lb-header">
+      <div>
+        <div class="lb-title">Sınıf Liderboard</div>
+        <div class="lb-sub" id="lb-sub">Tüm öğrencilerin sonuçları</div>
+      </div>
+      <div class="lb-actions">
+        <div class="lb-refresh"><div class="lb-refresh-dot"></div>Canlı</div>
+        <button class="lb-btn" onclick="renderLB()">Yenile</button>
+        <button class="lb-btn" onclick="showScreen('screen-login')">← Giriş</button>
+        <button class="lb-btn" onclick="showScreen('screen-game')" id="back-game-btn" style="display:none">← Oyuna Dön</button>
+      </div>
     </div>
+    <div class="lb-summary" id="lb-summary"></div>
+    <table class="lb-table">
+      <thead><tr>
+        <th style="width:44px;text-align:center">#</th>
+        <th>Öğrenci</th>
+        <th>No</th>
+        <th>Puan</th>
+        <th>Başarı</th>
+        <th style="width:120px">İlerleme</th>
+      </tr></thead>
+      <tbody id="lb-body"></tbody>
+    </table>
   </div>
-  <div class="lb-summary" id="lb-summary"></div>
-  <table class="lb-table" id="lb-table">
-    <thead><tr>
-      <th style="width:48px;text-align:center">#</th>
-      <th>Öğrenci</th>
-      <th>No</th>
-      <th>Puan</th>
-      <th>Tur</th>
-      <th>Oran</th>
-      <th style="width:140px">İlerleme</th>
-    </tr></thead>
-    <tbody id="lb-body"></tbody>
-  </table>
 </div>
-
+ 
 <script>
-/* ══ VERİ ══════════════════════════════════════════════ */
+/* ══ VERİ ══ */
 const EVENTS = [
   {id:'e1',year:1999,cat:'u',icon:'🏛️',bg:'#142B52',label:'Euro lansmanı',
    title:'Euro lansmanı — 11 ülke tek paraya geçti',
    desc:'1 Ocak 1999. 11 ülke euroya geçti. Enflasyon %1.1 — hedefin altında. Büyüme zayıf. ECB ilk faiz kararını verecek.',
-   kavram:{sub:'Bu olayda geçen temel kavramlar',items:[
-     {term:'EMU — Ekonomik ve Parasal Birlik',def:'Tek para (euro) + tek merkez bankası (ECB) + ortak para politikası. Ama dikkat: mali politika (bütçe, vergi) hâlâ her ülkede ayrı. Bu asimetri AB\'nin temel kırılganlığı.',tag:'Temel Kavram'},
-     {term:'Deflasyon Riski',def:'Fiyatların sürekli düşmesi tehlikesi. Kulağa iyi gelir ama tehlikeli: tüketiciler "daha ucuzlayacak" diye harcamayı erteler, ekonomi durur. ECB %2 enflasyon hedefler — sıfırın üstünde ama kontrollü.',tag:'Para Politikası'},
-     {term:'MRO — Ana Refinansman Oranı',def:'Bankaların ECB\'den 1 haftalığına borç alabileceği faiz oranı. "Politika faizi" de denir. Bu faiz artarsa kredi pahalılaşır, harcamalar düşer, enflasyon yavaşlar.',tag:'ECB Aracı'},
+   kavram:{sub:'Temel kavramlar',items:[
+     {term:'EMU — Ekonomik ve Parasal Birlik',def:'Tek para (euro) + tek merkez bankası (ECB) + ortak para politikası. Mali politika (bütçe, vergi) ise hâlâ her ülkede ayrı. Bu asimetri AB\'nin temel kırılganlığı.',tag:'Temel Kavram'},
+     {term:'MRO — Ana Refinansman Oranı',def:'Bankaların ECB\'den 1 haftalığına borç alabileceği faiz. Faiz artarsa kredi pahalılaşır, harcamalar düşer, enflasyon yavaşlar.',tag:'ECB Aracı'},
+     {term:'Deflasyon Riski',def:'Fiyatların sürekli düşmesi tehlikesi. Tüketiciler "daha ucuzlayacak" diye harcamayı erteler, ekonomi durur. ECB %2 hedefler — sıfırın üstünde ama kontrollü.',tag:'Para Politikası'},
    ]},
    inflation:1.1,unemp:9.2,gdp:2.1,rate:3.0,
    impacts:[{l:'Ticaret hacmi',v:'+%12',c:'#22C55E'},{l:'Kur riski',v:'Bitti',c:'#22C55E'},{l:'Deflasyon',v:'Orta risk',c:'#FCD34D'}],
@@ -494,196 +435,212 @@ const EVENTS = [
    fb:{g:'Mükemmel! Enflasyon hedefin altında — ılımlı indirim doğruydu. Gerçekte ECB %2.5\'e indirdi.',o:'Makul. Ama enflasyon düşükken indirim daha uygundu.',b:'Deflasyon riskinde artış tam ters sinyal.'}},
   {id:'e2',year:2001,cat:'c',icon:'🗼',bg:'#2D1010',label:'11 Eylül saldırıları',
    title:'11 Eylül — Küresel ekonomik şok',
-   desc:'Eylül 2001. New York ve Washington\'a saldırılar. Borsalar çöktü. Fed acil faiz indirdi. AB büyümesi zaten zayıftı.',
-   kavram:{sub:'Kriz yönetimi ve koordinasyon',items:[
-     {term:'Talep Şoku',def:'Beklenmedik bir olay nedeniyle tüketici ve yatırımcıların harcamayı aniden kesmesi. Güven çöker, ekonomi durur. Para politikası faiz indirerek krediyi ucuzlatır ve talebi canlandırmaya çalışır.',tag:'Makroekonomik Kavram'},
-     {term:'Koordineli Para Politikası',def:'Fed ve ECB\'nin aynı anda faiz indirmesi. Tek bir merkez bankasının hareketi piyasayı sakinleştirmeyebilir — ama küresel koordinasyon "sistem güvende" mesajı verir ve güveni yeniden tesis eder.',tag:'Uluslararası İşbirliği'},
-     {term:'Merkez Bankası Güvenilirliği',def:'Kamuoyunun merkez bankasının söylediklerini yapacağına duyduğu inanç. Bu güven olmadan faiz kararları bile etkisiz kalır. Güvenilirlik yıllar içinde kazanılır, günler içinde yitirilir.',tag:'Para Politikası'},
+   desc:'Eylül 2001. Borsalar çöktü. Havacılık durdu. Fed acil faiz indirdi. AB büyümesi zaten zayıftı.',
+   kavram:{sub:'Kriz yönetimi',items:[
+     {term:'Talep Şoku',def:'Beklenmedik bir olay nedeniyle tüketici ve yatırımcıların harcamayı aniden kesmesi. Güven çöker, ekonomi durur.',tag:'Makroekonomik Kavram'},
+     {term:'Koordineli Para Politikası',def:'Fed ve ECB\'nin aynı anda faiz indirmesi. Küresel koordinasyon "sistem güvende" mesajı verir ve güveni yeniden tesis eder.',tag:'Uluslararası İşbirliği'},
    ]},
    inflation:2.4,unemp:8.1,gdp:1.7,rate:4.5,
    impacts:[{l:'Borsa',v:'-%10',c:'#F87171'},{l:'Turizm',v:'Durdu',c:'#F87171'},{l:'Güven',v:'Dip',c:'#F87171'}],
    advisors:[{n:'Fed kord.',r:'İndir → %4.0',w:'Koordineli davran'},{n:'Bundesbank',r:'Sabit %4.5',w:'Enflasyon %2.4'},{n:'IMF',r:'İndir → %4.25',w:'Kriz psikolojisi'}],
    opts:[{l:'İndir → %4.0',t:'Koordineli',d:-.5,s:80,c:'og'},{l:'İndir → %4.25',t:'Optimal',d:-.25,s:92,c:'og'},{l:'Sabit %4.5',t:'Temkinli',d:0,s:35,c:'od'},{l:'Artır → %4.75',t:'Felaket',d:.25,s:0,c:'or'}],
-   fb:{g:'Doğru! ECB de Fed ile birlikte indirdi. Koordineli kriz müdahalesi.',o:'Makul ama daha güçlü sinyal daha hızlı sakinleştirirdi.',b:'Kriz anında artış paniği derinleştirir.'}},
+   fb:{g:'Doğru! ECB de Fed ile birlikte indirdi.',o:'Makul ama daha güçlü sinyal daha hızlı sakinleştirirdi.',b:'Kriz anında artış paniği derinleştirir.'}},
   {id:'e3',year:2008,cat:'c',icon:'🏦',bg:'#2D1010',label:'Lehman iflası',
    title:'Lehman Brothers iflası — Küresel finans krizi',
-   desc:'15 Eylül 2008. Lehman iflas etti. Krediler dondu. Borsalar çöktü. Avro Bölgesi bankacılık sistemi tehdit altında.',
-   kavram:{sub:'Sistemik risk ve likidite krizi',items:[
-     {term:'Sistemik Risk',def:'Tek bir kurumun iflasının tüm finansal sistemi domino gibi devirmesi tehlikesi. Lehman bu riski somutlaştırdı: bankalar birbirine güveni yitirdi, kredi piyasaları dondu, ekonomi felç oldu.',tag:'Finansal İstikrar'},
-     {term:'Likidite Krizi vs Solvensi Krizi',def:'Likidite: nakit var ama dolaşmıyor. Solvensi: borcunu ödeyememe. 2008\'de her ikisi de yaşandı. ECB "borç veren son çare" (ELR) rolünü üstlenerek acil likidite enjekte etti.',tag:'Bankacılık'},
-     {term:'Kredi Kanalı Tıkanması',def:'Bankalar birbirine güvenmeyince borç vermez — faiz düşse bile kredi akmaz. Bu yüzden sadece faiz indirmek yetmez; ECB\'nin repo operasyonları ve likidite garantileri eş zamanlı devreye girdi.',tag:'Para Politikası'},
+   desc:'15 Eylül 2008. Lehman iflas etti. Krediler dondu. Avro Bölgesi bankacılık sistemi tehdit altında.',
+   kavram:{sub:'Sistemik risk',items:[
+     {term:'Sistemik Risk',def:'Tek bir kurumun iflasının tüm finansal sistemi domino gibi devirmesi. Bankalar birbirine güveni yitirince kredi piyasaları donar.',tag:'Finansal İstikrar'},
+     {term:'Kredi Kanalı Tıkanması',def:'Bankalar birbirine borç vermeyince faiz düşse bile kredi akmaz. Bu yüzden sadece faiz indirmek yetmez — likidite garantileri de şart.',tag:'Para Politikası'},
    ]},
    inflation:3.6,unemp:7.5,gdp:0.4,rate:4.25,
    impacts:[{l:'Bankalar arası faiz',v:'+300 bp',c:'#F87171'},{l:'Borsa',v:'-%30',c:'#F87171'},{l:'Güven',v:'Çöktü',c:'#F87171'}],
    advisors:[{n:'Trichet',r:'Sabit — enflasyon',w:'Mandate: fiyat istikrarı'},{n:'Sarkozy',r:'Acilen %3\'e in',w:'Sistem çöküyor'},{n:'Baş Ekn.',r:'İndir → %3.75',w:'Önce sistemi koru'}],
    opts:[{l:'İndir → %3.75',t:'Cesur & doğru',d:-.5,s:92,c:'og'},{l:'İndir → %3.25',t:'Agresif',d:-1,s:65,c:'og'},{l:'Sabit %4.25',t:'Pasiflik',d:0,s:18,c:'od'},{l:'Artır → %4.5',t:'Felaket',d:.25,s:0,c:'or'}],
-   fb:{g:'Mükemmel kriz müdahalesi! ECB koordineli küresel indirimine katıldı.',o:'İyi. Hızlı sinyal paniği frenler.',b:'Finansal çöküşte hareketsizlik krizi paniğe dönüştürür.'}},
+   fb:{g:'Mükemmel kriz müdahalesi!',o:'İyi. Hızlı sinyal paniği frenler.',b:'Finansal çöküşte hareketsizlik krizi paniğe dönüştürür.'}},
   {id:'e4',year:2010,cat:'c',icon:'🇬🇷',bg:'#2D1010',label:'Yunan borç krizi',
    title:'Yunanistan iflasın eşiğinde',
-   desc:'Nisan 2010. Yunanistan açığının %12.7 olduğunu açıkladı. Tahvil faizleri %12\'yi aştı. Troika müzakereleri başladı.',
-   kavram:{sub:'Borç krizi dinamikleri',items:[
-     {term:'Spread (Risk Primi)',def:'Bir ülkenin tahvil faizinin Almanya\'nın üzerindeki farkı. Yunanistan spreadi +1000 baz puan = %10 daha pahalı borçlanıyor demek. Yüksek spread → borçlanma sürdürülemez → kriz derinleşir.',tag:'Tahvil Piyasası'},
-     {term:'Doom Loop — Kısır Döngü',def:'Bankalar devlet tahvili tutar → devlet iflas ederse bankalar batar → devlet bankaları kurtarmak için daha fazla borçlanır → devlet daha da batar. AB\'nin en tehlikeli kırılganlığı.',tag:'Finansal İstikrar'},
-     {term:'LTRO — Uzun Vadeli Repo',def:'ECB\'nin bankalara düşük faizle 3 yıl vadeli ucuz kredi vermesi. Bankalar bu parayla hem likiditelerini güçlendirdi hem de devlet tahvili satın aldı — dolaylı ama güçlü bir destek mekanizması.',tag:'ECB Aracı'},
+   desc:'Nisan 2010. Açık %12.7. Tahvil faizleri %12\'yi aştı. Troika müzakereleri başladı.',
+   kavram:{sub:'Borç krizi',items:[
+     {term:'Spread (Risk Primi)',def:'Bir ülkenin tahvil faizinin Almanya\'nın üzerindeki farkı. +1000 bp = %10 daha pahalı borçlanıyor. Yüksek spread borcu sürdürülemez kılar.',tag:'Tahvil Piyasası'},
+     {term:'Doom Loop',def:'Bankalar devlet tahvili tutar → devlet iflas ederse bankalar batar → devlet bankaları kurtarmak için borçlanır → devlet daha da batar.',tag:'Finansal İstikrar'},
    ]},
    inflation:1.6,unemp:10.1,gdp:1.9,rate:1.0,
    impacts:[{l:'Spread',v:'+1000 bp',c:'#F87171'},{l:'Bulaşma',v:'Kritik',c:'#F87171'},{l:'Euro',v:'Düştü',c:'#FCD34D'}],
    advisors:[{n:'Bundesbank',r:'Sabit, disiplin',w:'Kurtarma tehlikeli'},{n:'Lagarde',r:'LTRO + sabit',w:'Bankalara likidite'},{n:'İtalya',r:'Tahvil alımı',w:'Spreadler sürdürülemez'}],
    opts:[{l:'Sabit + LTRO',t:'Doğru araç',d:0,s:82,c:'og'},{l:'İndir → %0.75',t:'Ek destek',d:-.25,s:62,c:'od'},{l:'Artır → %1.25',t:'Yıkıcı',d:.25,s:10,c:'or'},{l:'Artır → %1.5',t:'Krizi tetikler',d:.5,s:0,c:'or'}],
-   fb:{g:'Akıllıca! Bu krizde faiz değil, SMP ve LTRO araçlardı.',o:'Makul. Araç seçimi faiz kararından kritik.',b:'Borç krizinde artış İspanya ve İtalya\'ya da sıçratırdı.'}},
+   fb:{g:'Akıllıca! Bu krizde faiz değil, LTRO ve SMP araçlardı.',o:'Makul. Araç seçimi faiz kararından kritik.',b:'Borç krizinde artış krizi derinleştirir.'}},
   {id:'e5',year:2012,cat:'c',icon:'🎯',bg:'#0A1E38',label:'"Whatever it takes"',
    title:'Draghi\'nin tarihi kararı — OMT duyurusu',
-   desc:'26 Temmuz 2012. İspanya ve İtalya spreadleri kritik seviyelerde. Avro Bölgesi dağılabilir. Draghi konuşmak üzere.',
-   kavram:{sub:'Beklenti yönetimi ve merkez bankası iletişimi',items:[
-     {term:'OMT — Açık Piyasa İşlemleri Taahhüdü',def:'"Sınırsız tahvil alımı" taahhüdü. Hiç kullanılmadı — ama var olması yetti. Spekülatörler "ECB karşıma çıkarsa kazanamam" diyerek saldırıdan vazgeçti. Güç, kullanmaktan değil var olmaktan gelir.',tag:'ECB Aracı'},
-     {term:'Beklenti Kanalı (Forward Guidance)',def:'Merkez bankasının gelecekteki politikaya dair verdiği sinyal. "Faizi X tarihine kadar düşük tutacağız" gibi bir açıklama bugünkü finansal koşulları değiştirir — hiçbir şey yapmadan!',tag:'Para Politikası İletişimi'},
-     {term:'Kendi Kendini Besleyen Kriz',def:'Yatırımcılar "bu ülke batar" diye düşününce tahvil satarlar → faiz yükselir → ülke gerçekten zorlanır → "haklıymışız." ECB bu beklenti döngüsünü sınırsız alım taahhüdüyle kırdı.',tag:'Finansal Kriz Teorisi'},
+   desc:'26 Temmuz 2012. İtalya ve İspanya spreadleri kritik seviyelerde. Avro dağılabilir.',
+   kavram:{sub:'Beklenti yönetimi',items:[
+     {term:'OMT — Açık Piyasa İşlemleri Taahhüdü',def:'"Sınırsız tahvil alımı" taahhüdü. Hiç kullanılmadı — ama var olması yetti. Spekülatörler vazgeçti. Güç kullanmaktan değil, var olmaktan gelir.',tag:'ECB Aracı'},
+     {term:'Beklenti Kanalı',def:'Merkez bankasının gelecek politikaya dair verdiği sinyal bugünkü koşulları değiştirir — hiçbir şey yapmadan.',tag:'Para Politikası İletişimi'},
    ]},
    inflation:2.5,unemp:11.4,gdp:-0.8,rate:0.75,
    impacts:[{l:'İtalya spread',v:'+530 bp',c:'#F87171'},{l:'Euro güveni',v:'Kırılgan',c:'#FCD34D'},{l:'Büyüme',v:'Negatif',c:'#F87171'}],
    advisors:[{n:'Almanya',r:'Hiçbir şey yapma',w:'Kural kural'},{n:'Draghi',r:'OMT + sabit',w:'Söylemek yeter'},{n:'Fransa',r:'Faiz in + OMT',w:'Hem sinyal hem aksiyon'}],
    opts:[{l:'OMT duyur + sabit',t:'Tarihin kararı',d:0,s:100,c:'og'},{l:'İndir + OMT',t:'İyi ama fazla',d:-.25,s:72,c:'og'},{l:'Sabit, sessiz',t:'Fırsatı kaçır',d:0,s:18,c:'od'},{l:'Artır → %1',t:'Avro biter',d:.25,s:0,c:'or'}],
-   fb:{g:'TARİHİN EN ÖNEMLİ MERKEZ BANKASI KARARI! OMT hiç kullanılmadı — duyurusu yetti.',o:'Doğru yöndeydin. Ama sınırsız taahhüt psikolojisi her şeydi.',b:'Bu an avronun son şansıydı.'}},
+   fb:{g:'TARİHİN EN ÖNEMLİ MERKEZ BANKASI KARARI! OMT duyurusu krizi bitirdi.',o:'Doğru yöndeydin. Ama sınırsız taahhüt psikolojisi her şeydi.',b:'Bu an avronun son şansıydı.'}},
   {id:'e6',year:2016,cat:'u',icon:'🇬🇧',bg:'#2A1E00',label:'Brexit referandumu',
    title:'İngiltere AB\'den ayrılmayı oyladı',
-   desc:'23 Haziran 2016. %52 "Leave" oyu. Sterlin %10 değer kaybetti. Uzun vadeli etkileri belirsiz.',
-   kavram:{sub:'Belirsizlik ekonomisi ve kur etkisi',items:[
-     {term:'Belirsizlik Primi',def:'Yatırımcılar belirsizliği sevmez — belirsiz ortamda yatırımı erteler ve parayı güvenli limanla taşır. Brexit sonrası sterlin düşüşü bu primin en somut örneği. ECB görevi: "her şey kontrol altında" güvencesi vermek.',tag:'Finans & Kur'},
-     {term:'Döviz Kuru Aktarım Kanalı',def:'Faiz artarsa yabancı sermaye akar → para değerlenir → ithalat ucuzlar → enflasyon düşer. Ama değerli para ihracatı pahalılaştırır. Bu çift yönlü etki para politikasını karmaşıklaştırır.',tag:'Aktarım Mekanizması'},
-     {term:'Merkez Bankası Bağımsızlığı',def:'Siyasi baskılara rağmen fiyat istikrarı hedefine odaklanma ilkesi. Brexit bir siyasi kriz olduğundan ECB bunu "kendi görevi" saymadı. Para politikası siyasi değil ekonomik verilere dayanır.',tag:'Kurumsal İlke'},
+   desc:'23 Haziran 2016. %52 "Leave". Sterlin %10 değer kaybetti.',
+   kavram:{sub:'Belirsizlik ekonomisi',items:[
+     {term:'Belirsizlik Primi',def:'Yatırımcılar belirsizliği sevmez — yatırımı erteler, parayı güvenli limana taşır. Brexit sonrası sterlin düşüşü bu primin somut örneği.',tag:'Finans & Kur'},
+     {term:'Merkez Bankası Bağımsızlığı',def:'Siyasi baskılara rağmen fiyat istikrarı hedefine odaklanma ilkesi. ECB Brexit\'i "kendi sorunu" saymadı.',tag:'Kurumsal İlke'},
    ]},
    inflation:0.2,unemp:10.0,gdp:1.8,rate:0.0,
    impacts:[{l:'Sterlin',v:'-%10',c:'#F87171'},{l:'AB ticaret',v:'Risk',c:'#FCD34D'},{l:'Belirsizlik',v:'Yüksek',c:'#FCD34D'}],
    advisors:[{n:'Draghi',r:'Sabit + likidite',w:'Uzun vade değerlendir'},{n:'Lagarde',r:'İndir %-0.5',w:'Belirsizlik öldürür'},{n:'Bundesbank',r:'Sabit, bekle',w:'Etkiyi önce ölç'}],
    opts:[{l:'Sabit + likidite',t:'Doğru',d:0,s:90,c:'og'},{l:'İndir → %-0.25',t:'Makul',d:-.25,s:68,c:'og'},{l:'İndir → %-0.5',t:'Panik',d:-.5,s:45,c:'od'},{l:'Artır → %0.25',t:'Hata',d:.25,s:5,c:'or'}],
-   fb:{g:'Doğru! ECB likidite güvencesi verdi, büyük adım atmadı.',o:'Makul. Etkiyi ölçmek için zaman lazım.',b:'Brexit anında artış büyüme ve güveni aynı anda vurur.'}},
+   fb:{g:'Doğru! Likidite güvencesi verildi, büyük adım atılmadı.',o:'Makul. Etkiyi ölçmek için zaman lazım.',b:'Brexit anında artış büyüme ve güveni aynı anda vurur.'}},
   {id:'e7',year:2020,cat:'c',icon:'🦠',bg:'#1A1A00',label:'COVID-19 pandemisi',
    title:'Pandemi — Avrupa ekonomisi durdu',
-   desc:'Mart 2020. Kilitlenme. GSYİH -%8 bekleniyor. Enflasyon eksilere iniyor. 1.85 trilyon € PEPP tartışması.',
-   kavram:{sub:'Alışılmadık para politikası araçları',items:[
-     {term:'Efektif Alt Sınır (ELB)',def:'Faizin ne kadar düşürülebileceğinin pratik sınırı — genellikle sıfır veya negatif. Bu sınıra dayanıldığında klasik faiz politikası işe yaramaz. ECB 2020\'de bu noktadaydı: faiz zaten sıfırdı.',tag:'Para Politikası'},
-     {term:'QE — Niceliksel Genişleme',def:'Merkez bankasının tahvil satın alarak piyasaya para sürmesi. Faiz indirilemiyen durumlarda devreye girer. PEPP bu yöntemin pandemi versiyonu: 1.85 trilyon € ve her ülkeye esnek tahsisat.',tag:'Alışılmadık Araç'},
-     {term:'Otomatik Stabilizatörler',def:'Kriz döneminde işsizlik ödenekleri ve sosyal yardımlar otomatik artar — vergi gelirleri düşer. Bu "otomatik pilot" ekonomiyi destekler. AB\'de ulusal düzeyde var ama ortak mekanizma henüz eksik.',tag:'Mali Politika'},
+   desc:'Mart 2020. Kilitlenme. GSYİH -%8 bekleniyor. Enflasyon eksilere iniyor.',
+   kavram:{sub:'Alışılmadık araçlar',items:[
+     {term:'Efektif Alt Sınır (ELB)',def:'Faizin ne kadar düşürülebileceğinin pratik sınırı — genellikle sıfır. Bu sınırda klasik faiz politikası işe yaramaz. 2020\'de ECB bu noktadaydı.',tag:'Para Politikası'},
+     {term:'QE / PEPP',def:'Merkez bankasının tahvil satın alarak piyasaya para sürmesi. Faiz indirilemediğinde devreye girer. PEPP 1.85 trilyon € ile pandemi döneminin temel aracı oldu.',tag:'Alışılmadık Araç'},
    ]},
    inflation:0.3,unemp:7.1,gdp:-6.4,rate:0.0,
    impacts:[{l:'Büyüme',v:'-%8',c:'#F87171'},{l:'İstihdam',v:'Patlıyor',c:'#F87171'},{l:'Deflasyon',v:'Gerçek risk',c:'#F87171'}],
    advisors:[{n:'Lagarde',r:'PEPP + sabit %0',w:'Faiz sıfırda, PEPP güçlü'},{n:'Şahin',r:'Negatif %-0.6',w:'Sıfırda sıkıştık'},{n:'Baş Ekn.',r:'PEPP 1.85T',w:'Varlık alımı daha etkili'}],
    opts:[{l:'PEPP + sabit %0',t:'Tarihin kararı',d:0,s:96,c:'og'},{l:'Negatif %-0.25',t:'Riskli',d:-.25,s:42,c:'od'},{l:'Negatif %-0.5',t:'Tehlikeli',d:-.5,s:22,c:'or'},{l:'Artır → %0.25',t:'Yanlış',d:.25,s:0,c:'or'}],
-   fb:{g:'Mükemmel! Faiz sıfırda — PEPP doğru araç. ECB 1.85T € ile pandemiyi atlattı.',o:'Negatif faiz banka kârlılığını ezer, kredi kanalını tıkar.',b:'Pandemi ortamında artış — gerçekten mi?'}},
+   fb:{g:'Mükemmel! PEPP doğru araç. 1.85T € ile pandemi atlatıldı.',o:'Negatif faiz banka kârlılığını ezer.',b:'Pandemi ortamında artış — gerçekten mi?'}},
   {id:'e8',year:2022,cat:'w',icon:'💥',bg:'#2D1010',label:'Rusya-Ukrayna savaşı',
    title:'Ukrayna Savaşı — Enerji şoku ve rekor enflasyon',
-   desc:'Şubat 2022. Rusya Ukrayna\'yı işgal etti. Enerji fiyatları patladı. Enflasyon %8.9 — 40 yılın rekoru.',
-   kavram:{sub:'Arz enflasyonu ve stagflasyon riski',items:[
-     {term:'Maliyet İtişli Enflasyon',def:'Talep artışından değil hammadde/enerji maliyeti artışından kaynaklanan fiyat artışı. Para politikasıyla bastırması güç: faiz artırırsan hem enflasyonu hem büyümeyi vurursun.',tag:'Enflasyon Türleri'},
-     {term:'Stagflasyon',def:'Durgunluk + enflasyon birlikte. Merkez bankacısının en korktuğu senaryo: faiz artırırsan durgunluğu derinleştirirsin, artırmazsan enflasyon kaçar. 1970\'lerin petrol krizi klasik örnek.',tag:'Makroekonomik Risk'},
-     {term:'Enflasyon Çıpası',def:'İnsanlar gelecekte de enflasyonun yüksek olacağını beklerse ücret artışı ister → maliyetler artar → enflasyon gerçekten yükselir. ECB\'nin görevi bu kısır döngüyü beklentileri çıpalayarak kırmak.',tag:'Para Politikası'},
+   desc:'Şubat 2022. Enerji fiyatları patladı. Enflasyon %8.9 — 40 yılın rekoru.',
+   kavram:{sub:'Arz enflasyonu',items:[
+     {term:'Maliyet İtişli Enflasyon',def:'Talep artışından değil hammadde/enerji maliyetinden kaynaklanan fiyat artışı. Faiz artırırsan hem enflasyonu hem büyümeyi vurursun.',tag:'Enflasyon Türleri'},
+     {term:'Enflasyon Çıpası',def:'İnsanlar yüksek enflasyonun süreceğini beklerse ücret artışı ister → maliyetler artar → enflasyon gerçekten yükselir. ECB bu kısır döngüyü beklentileri çıpalayarak kırar.',tag:'Para Politikası'},
    ]},
    inflation:8.9,unemp:6.6,gdp:3.5,rate:0.0,
    impacts:[{l:'Gaz fiyatı',v:'+%900',c:'#F87171'},{l:'Enflasyon',v:'%8.9 rekor',c:'#F87171'},{l:'Büyüme',v:'Hâlâ +',c:'#6EE7B7'}],
    advisors:[{n:'Şahin',r:'Artır %0.5 hemen',w:'Beklentiler kopuyor'},{n:'Güvercin',r:'Artır %0.25',w:'Güney borcu taşıyamaz'},{n:'Lagarde',r:'Artır %0.5 + sinyal',w:'Güvenilirlik her şey'}],
    opts:[{l:'Artır → %0.5',t:'Tarihi karar',d:.5,s:92,c:'og'},{l:'Artır → %0.25',t:'Yetersiz',d:.25,s:52,c:'od'},{l:'Sabit %0',t:'Çok geç',d:0,s:10,c:'or'},{l:'İndir → %-0.25',t:'Felaket',d:-.25,s:0,c:'or'}],
-   fb:{g:'Tarihi karar! ECB Temmuz 2022\'de 50 bp artırdı — 11 yıl sonra ilk artış.',o:'Doğru yön ama yetersiz. %8.9 enflasyona 25 bp güvenilirliği zedeledi.',b:'En yüksek enflasyonda hareketsizlik = güven krizi.'}},
+   fb:{g:'Tarihi karar! ECB 2022\'de 11 yıl aradan sonra ilk artışı yaptı.',o:'Doğru yön ama yetersiz. %8.9 enflasyona 25 bp güvenilirliği zedeledi.',b:'En yüksek enflasyonda hareketsizlik = güven krizi.'}},
 ];
-
+ 
 /* ══ STATE ══ */
-const ADMIN_PW = 'ecb2024';
-let player = { name:'', no:'' };
-let st = { selId:null, selOpt:null, history:{}, tur:0, score:0 };
-let trigCount = 0, trigTimer = null;
-
-/* ══ STORAGE ══ */
-function getRecords(){ return JSON.parse(localStorage.getItem('ecb_records')||'[]'); }
-function saveRecord(rec){ const r=getRecords(); const idx=r.findIndex(x=>x.no===rec.no); if(idx>=0)r[idx]=rec; else r.push(rec); localStorage.setItem('ecb_records',JSON.stringify(r)); }
-
+const STORAGE_KEY = 'ecb_lb_v1';
+let player = {name:'',no:''};
+let st = {selId:null,selOpt:null,history:{},tur:0,score:0};
+let lbRefreshTimer = null;
+ 
+/* ══ STORAGE HELPERs ══ */
+async function saveRecord(rec) {
+  try {
+    const key = 'student_' + rec.no.replace(/\s/g,'_');
+    await window.storage.set(key, JSON.stringify(rec), true);
+  } catch(e) {
+    // Fallback: localStorage
+    const arr = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+    const idx = arr.findIndex(r=>r.no===rec.no);
+    if(idx>=0) arr[idx]=rec; else arr.push(rec);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+  }
+}
+ 
+async function loadRecords() {
+  try {
+    const result = await window.storage.list('student_', true);
+    const keys = result.keys || [];
+    const records = [];
+    for(const key of keys) {
+      try {
+        const r = await window.storage.get(key, true);
+        if(r && r.value) records.push(JSON.parse(r.value));
+      } catch(e){}
+    }
+    return records;
+  } catch(e) {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+  }
+}
+ 
 /* ══ YARDIMCILAR ══ */
-const $=id=>document.getElementById(id);
-function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); if(id==='screen-lb') renderLB(); }
-function mcol(v,t){ if(t==='i') return v<1?'#F87171':v<=2.5?'#6EE7B7':v<=4?'#FCD34D':'#F87171'; if(t==='u') return v<6?'#6EE7B7':v<9?'#FCD34D':'#F87171'; if(t==='g') return v<0?'#F87171':v<1.5?'#FCD34D':'#6EE7B7'; return '#E8EDF5'; }
-function setBar(id,pct,col){ const e=$(id); e.style.width=Math.max(0,Math.min(pct,100))+'%'; e.style.background=col; }
-function catLbl(c){ return{c:'Kriz',w:'Savaş',e:'Ekonomi',u:'AB Siyaseti'}[c]||c; }
-function initials(n){ const p=n.trim().split(' '); return p.length>1?(p[0][0]+p[p.length-1][0]).toUpperCase():(n.slice(0,2).toUpperCase()); }
-
+const $ = id => document.getElementById(id);
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $(id).classList.add('active');
+  if(id==='screen-lb') {
+    $('back-game-btn').style.display = player.name ? '' : 'none';
+    renderLB();
+    if(lbRefreshTimer) clearInterval(lbRefreshTimer);
+    lbRefreshTimer = setInterval(renderLB, 15000);
+  } else {
+    if(lbRefreshTimer) { clearInterval(lbRefreshTimer); lbRefreshTimer=null; }
+  }
+}
+function mcol(v,t){if(t==='i')return v<1?'#F87171':v<=2.5?'#6EE7B7':v<=4?'#FCD34D':'#F87171';if(t==='u')return v<6?'#6EE7B7':v<9?'#FCD34D':'#F87171';if(t==='g')return v<0?'#F87171':v<1.5?'#FCD34D':'#6EE7B7';return '#E8EDF5'}
+function setBar(id,pct,col){const e=$(id);e.style.width=Math.max(0,Math.min(pct,100))+'%';e.style.background=col}
+function catLbl(c){return{c:'Kriz',w:'Savaş',e:'Ekonomi',u:'AB Siyaseti'}[c]||c}
+function initials(n){const p=n.trim().split(' ');return p.length>1?(p[0][0]+p[p.length-1][0]).toUpperCase():n.slice(0,2).toUpperCase()}
+ 
 /* ══ GİRİŞ ══ */
-function startGame(){
-  const name=$('inp-name').value.trim();
-  const no=$('inp-no').value.trim();
-  let ok=true;
-  $('err-name').style.display=name?'none':'block'; if(!name)ok=false;
-  $('err-no').style.display=no?'none':'block'; if(!no)ok=false;
-  if(!ok)return;
-  player={name,no};
-  $('player-avatar').textContent=initials(name);
-  $('player-name-disp').textContent=name;
-  $('player-no-disp').textContent=no;
-  st={selId:null,selOpt:null,history:{},tur:0,score:0};
-  $('hist-strip').innerHTML='';
-  $('score-disp').textContent='0';
-  $('tur-disp').textContent='0';
-  $('kalan-disp').textContent=EVENTS.length;
-  renderEvList();
+function startGame() {
+  const name = $('inp-name').value.trim();
+  const no   = $('inp-no').value.trim();
+  let ok = true;
+  $('err-name').style.display = name ? 'none' : 'block'; if(!name) ok=false;
+  $('err-no').style.display   = no   ? 'none' : 'block'; if(!no)   ok=false;
+  if(!ok) return;
+  player = {name, no};
+  $('player-avatar').textContent = initials(name);
+  $('player-name-disp').textContent = name;
+  $('player-no-disp').textContent = no;
+  st = {selId:null,selOpt:null,history:{},tur:0,score:0};
+  $('hist-strip').innerHTML = '';
   updateHeader();
+  renderEvList();
   showScreen('screen-game');
 }
-
+ 
 /* ══ OLAY LİSTESİ ══ */
-function renderEvList(){
-  const list=$('ev-list');
-  list.innerHTML=EVENTS.map(ev=>{
-    const h=st.history[ev.id];
-    const dc=h?(h>=80?'done-g':h>=50?'done-o':'done-b'):'';
-    const ac=st.selId===ev.id?'active':'';
-    const badge=h?(h>=80?'✓':h>=50?'~':'✗'):'';
-    const bc=h?(h>=80?'#22C55E':h>=50?'#FCD34D':'#F87171'):'transparent';
-    return`<button class="ev-btn ${ac} ${dc}" onclick="selectEv('${ev.id}')">
+function renderEvList() {
+  $('ev-list').innerHTML = EVENTS.map(ev => {
+    const h = st.history[ev.id];
+    const dc = h ? (h>=80?'done-g':h>=50?'done-o':'done-b') : '';
+    const ac = st.selId===ev.id ? 'active' : '';
+    const badge = h ? (h>=80?'✓':h>=50?'~':'✗') : '';
+    const bc = h ? (h>=80?'#22C55E':h>=50?'#FCD34D':'#F87171') : 'transparent';
+    return `<button class="ev-btn ${ac} ${dc}" onclick="selectEv('${ev.id}')">
       <div class="ev-dot dot-${ev.cat}"></div>
-      <div class="ev-info">
-        <div class="ev-year">${ev.year}</div>
-        <div class="ev-lbl cat-${ev.cat}">${ev.label}</div>
-      </div>
-      ${badge?`<div class="ev-badge" style="background:${bc}22;color:${bc};font-size:0.7rem">${badge}</div>`:''}
+      <div class="ev-info"><div class="ev-year">${ev.year}</div><div class="ev-lbl cat-${ev.cat}">${ev.label}</div></div>
+      ${badge?`<div class="ev-badge" style="background:${bc}22;color:${bc}">${badge}</div>`:''}
     </button>`;
   }).join('');
 }
-
-function updateHeader(){
-  $('score-disp').textContent=st.score;
-  $('tur-disp').textContent=st.tur;
-  $('kalan-disp').textContent=EVENTS.length-Object.keys(st.history).length;
-  $('prog-fill').style.width=(Object.keys(st.history).length/EVENTS.length*100)+'%';
+ 
+function updateHeader() {
+  $('score-disp').textContent = st.score;
+  $('tur-disp').textContent = st.tur;
+  $('prog-fill').style.width = (Object.keys(st.history).length/EVENTS.length*100)+'%';
 }
-
+ 
 /* ══ OLAY YÜKLEMESİ ══ */
-function selectEv(id){
-  st.selId=id; st.selOpt=null;
-  const ev=EVENTS.find(e=>e.id===id);
-  renderEvList(); loadEv(ev);
-  $('game-right').scrollTop=0;
+function selectEv(id) {
+  st.selId = id; st.selOpt = null;
+  renderEvList();
+  loadEv(EVENTS.find(e=>e.id===id));
+  $('game-right').scrollTop = 0;
 }
-
-function loadEv(ev){
-  $('gp').style.display='none';
+ 
+function loadEv(ev) {
+  $('gp').style.display = 'none';
   $('game-body').classList.add('show');
   $('go-screen').classList.remove('show');
   $('res-card').classList.remove('show');
-
-  const ic=mcol(ev.inflation,'i'),uc=mcol(ev.unemp,'u'),gc=mcol(ev.gdp,'g');
+ 
+  const ic=mcol(ev.inflation,'i'), uc=mcol(ev.unemp,'u'), gc=mcol(ev.gdp,'g');
   $('mi').textContent=ev.inflation.toFixed(1)+'%'; $('mi').style.color=ic;
-  $('mi-s').textContent=ev.inflation<1?'Deflasyon riski':ev.inflation<=2.5?'Hedef aralıkta':'Hedefin üstünde';
+  $('mi-s').textContent=ev.inflation<1?'Deflasyon riski!':ev.inflation<=2.5?'Hedef aralıkta':'Hedefin üstünde';
   setBar('mi-b',ev.inflation/10*100,ic);
   $('mu').textContent=ev.unemp.toFixed(1)+'%'; $('mu').style.color=uc; setBar('mu-b',ev.unemp/15*100,uc);
   $('mg').textContent=(ev.gdp>=0?'+':'')+ev.gdp.toFixed(1)+'%'; $('mg').style.color=gc; setBar('mg-b',Math.max(0,(ev.gdp+5)/10*100),gc);
   $('mr').textContent=ev.rate.toFixed(2)+'%'; setBar('mr-b',Math.max(0,Math.min((ev.rate+1)/6*100,100)),'#8896B0');
-
-  $('sc-card').setAttribute('data-yr',ev.year);
-  $('sc-icon').textContent=ev.icon; $('sc-icon').style.background=ev.bg;
-  $('sc-meta').textContent=ev.year+' · '+catLbl(ev.cat);
-  $('sc-title').textContent=ev.title;
-  $('sc-desc').textContent=ev.desc;
-  $('sc-impacts').innerHTML=ev.impacts.map(i=>`<div class="impact-chip"><div class="ic-l">${i.l}</div><div class="ic-v" style="color:${i.c}">${i.v}</div></div>`).join('');
-
+ 
   if(ev.kavram){
-    $('kavram-subtitle').textContent=ev.kavram.sub;
-    $('kavram-items').innerHTML=ev.kavram.items.map(k=>`
+    $('kavram-subtitle').textContent = ev.kavram.sub;
+    $('kavram-items').innerHTML = ev.kavram.items.map(k=>`
       <div class="kavram-item">
         <div class="kavram-term">${k.term}</div>
         <div class="kavram-def">${k.def}</div>
@@ -693,45 +650,57 @@ function loadEv(ev){
   } else {
     $('kavram-box').style.display='none';
   }
+ 
+  $('sc-card').setAttribute('data-yr', ev.year);
+  $('sc-icon').textContent=ev.icon; $('sc-icon').style.background=ev.bg;
+  $('sc-meta').textContent=ev.year+' · '+catLbl(ev.cat);
+  $('sc-title').textContent=ev.title;
+  $('sc-desc').textContent=ev.desc;
+  $('sc-impacts').innerHTML=ev.impacts.map(i=>`<div class="impact-chip"><div class="ic-l">${i.l}</div><div class="ic-v" style="color:${i.c}">${i.v}</div></div>`).join('');
   $('adv-grid').innerHTML=ev.advisors.map((a,i)=>`<div class="adv-card" id="adv-${i}" onclick="pickAdv(${i})"><div class="adv-n">${a.n}</div><div class="adv-r">${a.r}</div><div class="adv-w">${a.w||''}</div></div>`).join('');
-
   $('opts-grid').innerHTML=ev.opts.map((o,i)=>`<button class="opt-btn" id="opt-${i}" onclick="pickOpt(${i})">${o.l}<span class="opt-tag">${o.t}</span></button>`).join('');
-
   $('sel-lbl').textContent='Bir seçenek seç';
   $('cfm-btn').disabled=true;
   st.selOpt=null;
 }
-
-function pickAdv(i){ document.querySelectorAll('.adv-card').forEach((c,j)=>c.classList.toggle('sel',j===i)); }
-function pickOpt(i){
-  st.selOpt=i;
-  const ev=EVENTS.find(e=>e.id===st.selId);
-  document.querySelectorAll('.opt-btn').forEach((b,j)=>{ b.className='opt-btn'+(j===i?' '+ev.opts[j].c:''); });
-  const nr=(ev.rate+ev.opts[i].d).toFixed(2);
+ 
+function pickAdv(i){document.querySelectorAll('.adv-card').forEach((c,j)=>c.classList.toggle('sel',j===i))}
+ 
+function pickOpt(i) {
+  st.selOpt = i;
+  const ev = EVENTS.find(e=>e.id===st.selId);
+  document.querySelectorAll('.opt-btn').forEach((b,j)=>{b.className='opt-btn'+(j===i?' '+ev.opts[j].c:'')});
+  const nr = (ev.rate+ev.opts[i].d).toFixed(2);
   $('sel-lbl').innerHTML=`<strong style="color:var(--goldl)">${ev.opts[i].l}</strong> → Yeni faiz: %${nr}`;
   $('cfm-btn').disabled=false;
 }
-
-/* ══ KARAR ONAYLA ══ */
-function confirmDec(){
-  if(st.selOpt===null)return;
-  const ev=EVENTS.find(e=>e.id===st.selId);
-  const opt=ev.opts[st.selOpt]; const pts=opt.s;
-  const isNew=!st.history[ev.id];
-  if(isNew){ st.history[ev.id]={pts,optLabel:opt.l,eventYear:ev.year,eventLabel:ev.label}; st.tur++; st.score+=pts; }
+ 
+/* ══ KARAR ══ */
+async function confirmDec() {
+  if(st.selOpt===null) return;
+  const ev = EVENTS.find(e=>e.id===st.selId);
+  const opt = ev.opts[st.selOpt];
+  const pts = opt.s;
+  const isNew = !st.history[ev.id];
+  if(isNew){ st.history[ev.id]=pts; st.tur++; st.score+=pts; }
   updateHeader(); renderEvList();
-
+ 
   if(isNew){
     const h=$('hist-strip');
     const c=document.createElement('div');
     c.className='hc '+(pts>=80?'hc-g':pts>=50?'hc-o':'hc-b');
     c.textContent=ev.year+': '+pts+'p'; h.appendChild(c);
-    saveRecord({name:player.name,no:player.no,score:st.score,tur:st.tur,
-      pct:Math.round(st.score/Object.keys(st.history).length/100*100),
-      history:st.history,ts:Date.now()});
+ 
+    const done = Object.keys(st.history).length;
+    const pct = Math.round(st.score/done/100*100);
+    await saveRecord({
+      name:player.name, no:player.no,
+      score:st.score, tur:st.tur, pct,
+      ts:Date.now()
+    });
   }
-
-  const isG=pts>=80,isO=pts>=50;
+ 
+  const isG=pts>=80, isO=pts>=50;
   const rc=$('res-card');
   rc.className='result-card show '+(isG?'rc-good':isO?'rc-ok':'rc-bad');
   $('rc-title').textContent=isG?'Mükemmel karar!':isO?'Makul karar':'Hatalı karar';
@@ -739,26 +708,29 @@ function confirmDec(){
   $('rc-pts').style.color=isG?'#6EE7B7':isO?'#FCD34D':'#F87171';
   const best=ev.opts.reduce((a,b)=>a.s>b.s?a:b);
   const nr=(ev.rate+opt.d).toFixed(2);
-  $('rc-grid').innerHTML=`<div class="ri"><div class="ri-l">Seçtiğin</div><div class="ri-v" style="color:#93C5FD">${opt.l}</div></div><div class="ri"><div class="ri-l">Yeni faiz</div><div class="ri-v">%${nr}</div></div><div class="ri"><div class="ri-l">Puan</div><div class="ri-v" style="color:${isG?'#6EE7B7':isO?'#FCD34D':'#F87171'}">${pts}/100</div></div><div class="ri"><div class="ri-l">Optimal</div><div class="ri-v" style="font-size:0.78rem;color:#8896B0">${best.l}</div></div>`;
-  const fbEl=$('fb-txt');
-  fbEl.textContent=isG?ev.fb.g:isO?ev.fb.o:ev.fb.b;
-  fbEl.style.borderColor=isG?'#22C55E':isO?'#FCD34D':'#F87171';
+  $('rc-grid').innerHTML=`
+    <div class="ri"><div class="ri-l">Seçtiğin</div><div class="ri-v" style="color:#93C5FD">${opt.l}</div></div>
+    <div class="ri"><div class="ri-l">Yeni faiz</div><div class="ri-v">%${nr}</div></div>
+    <div class="ri"><div class="ri-l">Puan</div><div class="ri-v" style="color:${isG?'#6EE7B7':isO?'#FCD34D':'#F87171'}">${pts}/100</div></div>
+    <div class="ri"><div class="ri-l">Optimal</div><div class="ri-v" style="font-size:0.78rem;color:#8896B0">${best.l}</div></div>`;
+  $('fb-txt').textContent=isG?ev.fb.g:isO?ev.fb.o:ev.fb.b;
+  $('fb-txt').style.borderColor=isG?'#22C55E':isO?'#FCD34D':'#F87171';
   $('cfm-btn').disabled=true;
   setTimeout(()=>$('res-card').scrollIntoView({behavior:'smooth',block:'nearest'}),100);
   if(Object.keys(st.history).length>=EVENTS.length) setTimeout(showGameOver,1200);
 }
-
+ 
 function nextEvent(){
   const up=EVENTS.filter(e=>!st.history[e.id]);
-  if(!up.length){showGameOver();return;}
+  if(!up.length){showGameOver();return}
   selectEv(up[Math.floor(Math.random()*up.length)].id);
 }
-
+ 
 /* ══ OYUN SONU ══ */
-function showGameOver(){
+async function showGameOver(){
   $('game-body').classList.remove('show');
   $('go-screen').classList.add('show');
-  const total=Object.values(st.history).reduce((a,b)=>a+b.pts,0);
+  const total=Object.values(st.history).reduce((a,b)=>a+b,0);
   const max=Object.keys(st.history).length*100;
   const pct=max?Math.round(total/max*100):0;
   $('go-pct').textContent=pct+'%';
@@ -767,16 +739,16 @@ function showGameOver(){
   if(pct>=90)grade='Lagarde seviyesi merkez bankacısı 🏆';
   else if(pct>=75)grade='Draghi\'nin makamını hak ettin 🌟';
   else if(pct>=60)grade='Trichet kadar iyisin 👍';
-  else grade='Tekrar oyna 📚';
+  else grade='Tekrar dene 📚';
   $('go-name').textContent=player.name;
   $('go-grade').textContent=grade;
-  const g=Object.values(st.history).filter(h=>h.pts>=80).length;
-  const o=Object.values(st.history).filter(h=>h.pts>=50&&h.pts<80).length;
-  const b=Object.values(st.history).filter(h=>h.pts<50).length;
-  $('go-stats').innerHTML=`${Object.keys(st.history).length} olayda karar verildi<br>Doğru: ${g} &nbsp;·&nbsp; Kabul: ${o} &nbsp;·&nbsp; Hatalı: ${b}<br>Toplam: ${total} / ${max}`;
-  saveRecord({name:player.name,no:player.no,score:st.score,tur:st.tur,pct,history:st.history,ts:Date.now(),finished:true});
+  const g=Object.values(st.history).filter(p=>p>=80).length;
+  const o=Object.values(st.history).filter(p=>p>=50&&p<80).length;
+  const b=Object.values(st.history).filter(p=>p<50).length;
+  $('go-stats').innerHTML=`${Object.keys(st.history).length} olayda karar verildi<br>Doğru: ${g} · Kabul: ${o} · Hatalı: ${b}<br>Toplam: ${total} / ${max}`;
+  await saveRecord({name:player.name,no:player.no,score:st.score,tur:st.tur,pct,ts:Date.now()});
 }
-
+ 
 function restartGame(){
   st={selId:null,selOpt:null,history:{},tur:0,score:0};
   $('hist-strip').innerHTML='';
@@ -785,84 +757,47 @@ function restartGame(){
   $('gp').style.display='';
   updateHeader(); renderEvList();
 }
-
+ 
 /* ══ LİDERBOARD ══ */
-function showLB(){ showScreen('screen-lb'); }
-function renderLB(){
-  const records=getRecords();
-  if(!records.length){
-    $('lb-body').innerHTML='<tr><td colspan="7" class="lb-empty">Henüz kayıt yok.</td></tr>';
+async function renderLB(){
+  const records = await loadRecords();
+  const sorted = [...records].sort((a,b)=>b.score-a.score);
+  const n = sorted.length;
+ 
+  $('lb-sub').textContent = n ? `${n} öğrenci kayıtlı` : 'Henüz kayıt yok';
+ 
+  if(!n){
     $('lb-summary').innerHTML='';
+    $('lb-body').innerHTML='<tr><td colspan="6" class="lb-empty">Henüz hiç öğrenci oynamamış.</td></tr>';
     return;
   }
-  const sorted=[...records].sort((a,b)=>b.score-a.score);
-  const total=sorted.length;
-  const avgScore=Math.round(sorted.reduce((a,b)=>a+b.score,0)/total);
-  const avgPct=Math.round(sorted.reduce((a,b)=>a+(b.pct||0),0)/total);
-  const top=sorted[0];
+ 
+  const avgScore = Math.round(sorted.reduce((a,b)=>a+b.score,0)/n);
+  const avgPct   = Math.round(sorted.reduce((a,b)=>a+(b.pct||0),0)/n);
+  const top = sorted[0];
+ 
   $('lb-summary').innerHTML=`
-    <div class="lb-stat"><div class="lb-stat-l">Toplam Öğrenci</div><div class="lb-stat-v">${total}</div></div>
-    <div class="lb-stat"><div class="lb-stat-l">Ortalama Puan</div><div class="lb-stat-v">${avgScore}</div></div>
-    <div class="lb-stat"><div class="lb-stat-l">Ortalama Başarı</div><div class="lb-stat-v">%${avgPct}</div></div>
-    <div class="lb-stat"><div class="lb-stat-l">Lider</div><div class="lb-stat-v" style="font-size:0.9rem">${top.name.split(' ')[0]}</div></div>
+    <div class="lb-stat"><div class="lb-stat-l">Öğrenci</div><div class="lb-stat-v">${n}</div></div>
+    <div class="lb-stat"><div class="lb-stat-l">Ort. Puan</div><div class="lb-stat-v">${avgScore}</div></div>
+    <div class="lb-stat"><div class="lb-stat-l">Ort. Başarı</div><div class="lb-stat-v">%${avgPct}</div></div>
+    <div class="lb-stat"><div class="lb-stat-l">Lider</div><div class="lb-stat-v" style="font-size:0.85rem">${top.name.split(' ')[0]}</div></div>
   `;
-  const maxScore=Math.max(...sorted.map(r=>r.score))||1;
-  $('lb-body').innerHTML=sorted.map((r,i)=>{
-    const isMe=r.no===player.no;
-    const rankCls=i===0?'gold-r':i===1?'silver-r':i===2?'bronze-r':'rank';
-    const pct=Math.round(r.score/maxScore*100);
-    return`<tr style="${isMe?'background:rgba(201,150,12,0.08);':''}">
-      <td class="${rankCls}" style="text-align:center;font-family:'Syne',sans-serif;font-weight:700">${i+1}</td>
-      <td style="font-weight:500;color:var(--text)">${r.name} ${isMe?'<span style="font-size:0.65rem;color:var(--goldl);background:var(--golddim);padding:1px 6px;border-radius:4px;margin-left:4px">Sen</span>':''}</td>
+ 
+  const maxScore = Math.max(...sorted.map(r=>r.score),1);
+  $('lb-body').innerHTML = sorted.map((r,i)=>{
+    const isMe = player.no && r.no === player.no;
+    const rankCls = i===0?'gold-r':i===1?'silver-r':i===2?'bronze-r':'normal-r';
+    const barPct = Math.round(r.score/maxScore*100);
+    const pct = r.pct || 0;
+    return `<tr class="${isMe?'me-row':''}">
+      <td class="rank-cell ${rankCls}">${i+1}</td>
+      <td style="font-weight:500;color:var(--text)">${r.name}${isMe?' <span style="font-size:0.62rem;color:var(--goldl);background:var(--golddim);padding:1px 5px;border-radius:4px;margin-left:4px">Sen</span>':''}</td>
       <td style="color:var(--muted);font-size:0.78rem">${r.no}</td>
-      <td style="font-family:'Syne',sans-serif;font-weight:700;color:var(--goldl)">${r.score}</td>
-      <td style="color:var(--muted)">${r.tur||0}</td>
-      <td style="color:${(r.pct||0)>=80?'#22C55E':(r.pct||0)>=60?'#FCD34D':'#F87171'};font-weight:500">%${r.pct||0}</td>
-      <td><div class="lb-bar-wrap"><div class="lb-bar-fill" style="width:${pct}%"></div></div></td>
+      <td style="font-family:\'Syne\',sans-serif;font-weight:700;color:var(--goldl)">${r.score}</td>
+      <td style="color:${pct>=80?'#22C55E':pct>=60?'#FCD34D':'#F87171'};font-weight:500">%${pct}</td>
+      <td><div class="lb-bar-wrap"><div class="lb-bar-fill" style="width:${barPct}%"></div></div></td>
     </tr>`;
   }).join('');
-}
-
-/* ══ ÖĞRETMEN PANELİ ══ */
-document.getElementById('teacherTrigger').addEventListener('click',()=>{
-  trigCount++;
-  clearTimeout(trigTimer);
-  trigTimer=setTimeout(()=>trigCount=0,2000);
-  if(trigCount>=5){ trigCount=0; openTeacher(); }
-});
-
-function openTeacher(){ $('pwOverlay').classList.add('show'); $('pwInput').value=''; $('pwErr').style.display='none'; setTimeout(()=>$('pwInput').focus(),100); }
-function closePw(){ $('pwOverlay').classList.remove('show'); }
-function checkPw(){
-  if($('pwInput').value===ADMIN_PW){ closePw(); exportCSV(); }
-  else{ $('pwErr').style.display='block'; $('pwInput').value=''; $('pwInput').focus(); }
-}
-
-/* ══ CSV EXPORT ══ */
-function exportCSV(){
-  const records=getRecords();
-  if(!records.length){ alert('Henüz kayıt yok.'); return; }
-  const sorted=[...records].sort((a,b)=>b.score-a.score);
-
-  const evCols=EVENTS.map(e=>e.year+'_'+e.label.replace(/[^a-zA-Z0-9ğüşıöçĞÜŞİÖÇ]/g,'_'));
-  const headerRow=['Sıra','Ad Soyad','Öğrenci No','Toplam Puan','Tur Sayısı','Başarı %','Tarih',...evCols.map(c=>c+'_puan'),...evCols.map(c=>c+'_karar')];
-
-  const rows=sorted.map((r,i)=>{
-    const hist=r.history||{};
-    const evPts=EVENTS.map(e=>hist[e.id]?hist[e.id].pts:'');
-    const evOpts=EVENTS.map(e=>hist[e.id]?hist[e.id].optLabel:'');
-    const d=new Date(r.ts||Date.now());
-    const dt=d.toLocaleDateString('tr-TR')+' '+d.toLocaleTimeString('tr-TR');
-    return[i+1,r.name,r.no,r.score,r.tur||0,r.pct||0,dt,...evPts,...evOpts];
-  });
-
-  const csv=[headerRow,...rows].map(r=>r.map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
-  const BOM='\uFEFF';
-  const blob=new Blob([BOM+csv],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url; a.download='ECB_Oyun_Sonuclari_'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click(); URL.revokeObjectURL(url);
 }
 </script>
 </body>
